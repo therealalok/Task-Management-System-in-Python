@@ -1,0 +1,35 @@
+def task():
+    tasks=[]
+    print("-----------Welcome to Task Management System----------------")
+
+    taskno=int(input("Enter how many tasks do you want to do for today: "))
+    for i in range(1,taskno+1):
+        task=input((f"Task no. {i}= "))
+        tasks.append(task)
+
+    print("Tasks are: ",tasks)
+
+    while True:
+        print("1 for add/2 for update/3 for delete/4 for exit")
+        operator=input("Enter any number: ")
+        if operator=="1":
+            add=input("What do you want to add? ")
+            print(f"{add} has been added.")
+            tasks.append(add)
+        if operator=="2":
+            update=input("What do you want to update? ")
+            if update in tasks:
+                up=input("What is the new task? ")
+                ind=tasks.index(update)
+                tasks[ind]=up
+                print(f"{update} has been updated as {up}.")
+        if operator=="3":
+            delete=input("What do you want to delete? ")
+            if delete in tasks:
+                tasks.remove(delete)
+
+        if operator=="4":
+            print("Quiting....")
+            quit()
+
+task()
